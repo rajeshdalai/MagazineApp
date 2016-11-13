@@ -1,17 +1,14 @@
 package com.example.springmvc.controller;
- 
-import java.util.List;
 
+import com.example.springmvc.model.Mail;
+import com.example.springmvc.service.MailService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.util.UriComponentsBuilder;
 
-import com.example.springmvc.model.Mail;
-import com.example.springmvc.service.MailService;
+import java.util.List;
  
 @RestController
 public class MainController {
@@ -50,13 +47,11 @@ public class MainController {
     //-------------------Create a Mail--------------------------------------------------------
      
     @RequestMapping(value = "/mail/", method = RequestMethod.POST)
-    public ResponseEntity<Void> createMail(@RequestBody Mail mail,    UriComponentsBuilder ucBuilder) {
+    public ResponseEntity<Void> createMail(@RequestBody Mail mail) {
         if (!mailService.save(mail)){
             return new ResponseEntity<Void>(HttpStatus.CONFLICT);
         }else {
-            HttpHeaders headers = new HttpHeaders();
-            headers.setLocation(ucBuilder.path("/mail/{id}").buildAndExpand(mail.getId()).toUri());
-            return new ResponseEntity<Void>(headers, HttpStatus.CREATED);
+            return new ResponseEntity<Void>(HttpStatus.CREATED);
         }
     }
  

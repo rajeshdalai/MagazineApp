@@ -27,7 +27,12 @@ public class MailServiceImpl implements MailService {
     }
 
     public boolean save(Mail mail) {
-        return mailDao.save(mail);
+        if(!mailExists(mail.getId())) {
+            mailDao.save(mail);
+            return true;
+        }
+        else
+            return false;
     }
 
     public void delete(int id) {
