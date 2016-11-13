@@ -1,0 +1,42 @@
+<html lang="en" ng-app="mailapp">
+<head>
+    <meta charset="utf-8">
+    <title>Mail App store</title>
+    <link rel="stylesheet" type="text/css" href="static/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="static/css/styles.css">
+    <link rel="stylesheet" type="text/css" href="static/css/loading-bar.css">
+    <script src="static/lib/angular/angular.js"></script>
+    <script src="static/lib/angular/angular-animate.js"></script>
+    <script src="static/lib/angular-route/angular-ui-router.js"></script>
+    <script src="static/lib/loading-bar/loading-bar.js"></script>
+    <script src="static/lib/dir-pagination/dirPagination.js"></script>
+    <script src="static/app/app.js"></script>
+</head>
+<body>
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <button aria-controls="navbar" aria-expanded="false" data-target="#navbar" data-toggle="collapse" class="navbar-toggle collapsed" type="button">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a href="#" class="navbar-brand">Mail App</a>
+        </div>
+        <div class="navbar-collapse collapse" id="navbar">
+            <ul class="nav navbar-nav">
+                <li ng-class="{active:$state.includes('Newmail')}"><a ui-sref="Newmail">Add New Mail</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<div role="main" class="container theme-showcase">
+    <div class="" style="margin-top:90px;">
+        <div ui-view></div>
+    </div>
+</div>
+<script src="static/lib/jquery.js"></script>
+<script src="static/lib/bootstrap/bootstrap.min.js"></script>
+</body>
+</html>
