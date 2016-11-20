@@ -14,7 +14,7 @@ public interface MailService {
 
     Mail findById(int id);
 
-    boolean save(Mail mail);
+    void save(Mail mail);
 
     void delete(int id);
 

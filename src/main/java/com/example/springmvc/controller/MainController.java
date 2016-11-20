@@ -48,11 +48,8 @@ public class MainController {
      
     @RequestMapping(value = "/mail/", method = RequestMethod.POST)
     public ResponseEntity<Void> createMail(@RequestBody Mail mail) {
-        if (!mailService.save(mail)){
-            return new ResponseEntity<Void>(HttpStatus.CONFLICT);
-        }else {
+            mailService.save(mail);
             return new ResponseEntity<Void>(HttpStatus.CREATED);
-        }
     }
  
     

@@ -10,7 +10,7 @@ import javax.persistence.*;
 @Table(name = "mail")
 public class Mail {
 
-    @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Id @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
 
     @Column(name = "subject")
